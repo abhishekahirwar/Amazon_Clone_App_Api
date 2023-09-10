@@ -13,11 +13,11 @@ const app = express();
 
 // middleware
 app.use(express.json());
+app.use(cors({ origin: "*" }));
 app.use(authRouter);
 
 // Connections
 mongoose.connect("mongodb+srv://innocentboyabhi1234:kyahikrlogepasswordjaanke@cluster4.gtm1z02.mongodb.net/amazondb").then(() => {
-    app.use(cors({ origin: "*" }));
     console.log('Database connect Successfully');
 })
     .catch((e) => {
