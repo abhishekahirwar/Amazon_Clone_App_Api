@@ -2,6 +2,7 @@ const express = require('express');
 const adminRouter = express.Router();
 const admin = require('../middleware/admin');
 const { Product } = require("../models/product");
+const { PromiseProvider } = require("mongoose");
 
 // Add product
 adminRouter.post('/admin/add-product', admin, async (req, res) => {
@@ -39,7 +40,7 @@ adminRouter.get('/admin/get-product', admin, async (req, res) => {
 
 adminRouter.post('/admin/delete-product', admin, async (req, res) => {
     try {
-        const {id} = res.body;
+        const { id } = res.body;
         let product = await Product.findByIdAndDelete(id);
         res.json(product);
     }

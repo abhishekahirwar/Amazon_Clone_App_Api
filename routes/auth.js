@@ -47,8 +47,7 @@ authRouter.post("/api/signin", async (req, res) => {
         }
 
         const token = jwt.sign({ id: user._id }, "passwordKey");
-        // user.password = null;
-        // res.status(200).json({ token, ...user._doc });
+        // res.json({ token, ...user._doc });
         res.status(200).json({ token, name: user.name, email: user.email, address: user.address, type: user.type, });
     } catch (e) {
         res.status(500).json({ error: e.message });
