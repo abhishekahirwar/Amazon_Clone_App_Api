@@ -44,7 +44,7 @@ productRouter.post('/api/rate-product', auth, async (req, res) => {
             rating,
         };
 
-        product.rating.push(ratingSchema);
+        product.ratings.push(ratingSchema);
         product = await product.save();
         res.json(product);
 
@@ -80,3 +80,4 @@ productRouter.get('/api/deal-of-day', auth, async (req, res) => {
 });
 
 module.exports = productRouter;
+

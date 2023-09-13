@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
-const { model } = require('mongoose');
 
 const auth = async (req, res, next) => {
-    const token = req.header('x-auth-token');
     try {
+        const token = req.header('x-auth-token');
         if (!token)
             return res.status(401).json({ msg: "No auth token, access denied" });
 
